@@ -1,0 +1,136 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjtudxbydfwp7"]
+
+[ext_resource type="Script" path="res://entity/Root/Root_Scene.gd" id="1_bi4d0"]
+[ext_resource type="PackedScene" uid="uid://dq0l7b8i0qose" path="res://entity/Foundation/Foundation.tscn" id="2_ow12a"]
+[ext_resource type="PackedScene" uid="uid://bji5davic22r2" path="res://entity/Card_holder/Card_holder.tscn" id="3_sndy5"]
+[ext_resource type="PackedScene" uid="uid://blqnju06jpcyk" path="res://entity/TableauPile/Tableau_Pile.tscn" id="4_kxirh"]
+
+[sub_resource type="Theme" id="Theme_bnft7"]
+MarginContainer/constants/margin_bottom = 28
+MarginContainer/constants/margin_left = 28
+MarginContainer/constants/margin_right = 28
+MarginContainer/constants/margin_top = 28
+
+[node name="root" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_bnft7")
+script = ExtResource("1_bi4d0")
+
+[node name="Main" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+
+[node name="points" type="Label" parent="Main/HBoxContainer"]
+layout_mode = 2
+text = "score : 0"
+
+[node name="space" type="Control" parent="Main/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="time" type="Label" parent="Main/HBoxContainer"]
+layout_mode = 2
+text = "00:00"
+
+[node name="space2" type="Control" parent="Main/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="moves" type="Label" parent="Main/HBoxContainer"]
+layout_mode = 2
+text = "moves : 0"
+
+[node name="TopHcontainer" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Foundation" parent="Main/TopHcontainer" instance=ExtResource("2_ow12a")]
+layout_mode = 2
+
+[node name="Foundation1" parent="Main/TopHcontainer" instance=ExtResource("2_ow12a")]
+layout_mode = 2
+
+[node name="Foundation2" parent="Main/TopHcontainer" instance=ExtResource("2_ow12a")]
+layout_mode = 2
+
+[node name="Foundation3" parent="Main/TopHcontainer" instance=ExtResource("2_ow12a")]
+layout_mode = 2
+
+[node name="space" type="Control" parent="Main/TopHcontainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="CardHolder" parent="Main/TopHcontainer" instance=ExtResource("3_sndy5")]
+layout_mode = 2
+
+[node name="TableauHbox" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+size_flags_vertical = 2
+alignment = 1
+
+[node name="TableauPile1" parent="Main/TableauHbox" instance=ExtResource("4_kxirh")]
+layout_mode = 2
+
+[node name="TableauPile2" parent="Main/TableauHbox" instance=ExtResource("4_kxirh")]
+layout_mode = 2
+
+[node name="TableauPile3" parent="Main/TableauHbox" instance=ExtResource("4_kxirh")]
+layout_mode = 2
+
+[node name="TableauPile4" parent="Main/TableauHbox" instance=ExtResource("4_kxirh")]
+layout_mode = 2
+
+[node name="TableauPile5" parent="Main/TableauHbox" instance=ExtResource("4_kxirh")]
+layout_mode = 2
+
+[node name="TableauPile6" parent="Main/TableauHbox" instance=ExtResource("4_kxirh")]
+layout_mode = 2
+
+[node name="TableauPile7" parent="Main/TableauHbox" instance=ExtResource("4_kxirh")]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -224.0
+offset_right = 28.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "CLICK TO START"

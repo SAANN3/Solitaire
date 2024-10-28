@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq0l7b8i0qose"]
+
+[ext_resource type="Script" path="res://entity/Foundation/Foundation.gd" id="1_t52if"]
+[ext_resource type="Texture2D" uid="uid://1s2pdcp0oldl" path="res://sprites/card_background.png" id="2_ww5rq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ultg6"]
+size = Vector2(180, 237)
+
+[node name="Foundation" type="CenterContainer"]
+offset_right = 180.0
+script = ExtResource("1_t52if")
+
+[node name="base" type="TextureRect" parent="."]
+modulate = Color(0.442911, 0.442911, 0.442911, 1)
+layout_mode = 2
+texture = ExtResource("2_ww5rq")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(89, 119.5)
+shape = SubResource("RectangleShape2D_ultg6")
+
+[node name="pile" type="CenterContainer" parent="."]
+layout_mode = 2
