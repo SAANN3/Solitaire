@@ -8,7 +8,7 @@ size = Vector2(182, 239)
 
 [node name="TableauPile" type="VBoxContainer"]
 offset_right = 180.0
-offset_bottom = 240.0
+offset_bottom = 140.0
 size_flags_horizontal = 4
 theme_override_constants/separation = -100
 script = ExtResource("1_6abaa")

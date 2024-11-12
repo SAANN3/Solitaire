@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnh2aajt02v3t"]
+
+[ext_resource type="Script" path="res://entity/Settings/Bottom_Panel.gd" id="1_pihg2"]
+[ext_resource type="PackedScene" uid="uid://x87cb7ugkgas" path="res://entity/Settings/Settings.tscn" id="2_0rlbk"]
+
+[node name="Settings" type="HBoxContainer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.093
+offset_right = -1910.0
+offset_bottom = 99.56
+grow_horizontal = 2
+script = ExtResource("1_pihg2")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Main" type="Panel" parent="Panel"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 0
+offset_left = -269.0
+offset_top = -291.0
+offset_right = 328.0
+offset_bottom = -36.0
+metadata/_tab_index = 0
+
+[node name="Settings" type="Panel" parent="."]
+custom_minimum_size = Vector2(10, 200)
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Main" parent="Settings" instance=ExtResource("2_0rlbk")]
+layout_mode = 1

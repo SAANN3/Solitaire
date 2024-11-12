@@ -4,6 +4,8 @@ extends Card_Controller
 @onready var pile: Control = $pile
 @onready var area: Area2D = $Area2D
 
+signal completed(state: bool)
+
 func _ready() -> void:
 	cards_holder = pile
 	collision = area
@@ -23,3 +25,11 @@ func can_enter(card: Card) -> bool:
 		return true
 	else:
 		return false
+
+func _on_card_left() -> void:
+	if cards.size() > 0 && cards[cards.size() - 1].rank == Card.CardRank.KING - 1:
+		completed.emit(false)
+	
+func _on_card_enter() -> void:
+	if cards.size() > 0 && cards[cards.size() - 1].rank == Card.CardRank.KING:
+		completed.emit(true)

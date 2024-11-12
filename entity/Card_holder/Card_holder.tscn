@@ -6,6 +6,7 @@
 [node name="Card_holder" type="HBoxContainer"]
 offset_right = 184.0
 offset_bottom = 240.0
+theme_override_constants/separation = 20
 script = ExtResource("1_6ttlg")
 
 [node name="Stacker" type="HBoxContainer" parent="."]

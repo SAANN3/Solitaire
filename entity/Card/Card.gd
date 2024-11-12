@@ -31,6 +31,7 @@ enum CardColor {RED, DARK}
 enum CardRank {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING}
 
 signal card_moved(old_parent: Card_Controller, new_parent: Card_Controller)
+signal card_flipped(reversed: bool)
 
 static func spawn(_rank: CardRank, _suit: Suit) -> Card:
 	var card: Card = preload("res://entity/Card/Card.tscn").instantiate()
@@ -49,9 +50,15 @@ func _ready() -> void:
 		_set_rank_text(CardRank.find_key(rank)[0])
 	flip(false)
 	
+func _process(delta: float) -> void:
+	if moving && old_pos:	
+		position += get_global_mouse_position() - old_pos
+		old_pos = get_global_mouse_position()
+
 func flip(change: bool = true) -> void:
 	if change:
 		reversed = !reversed
+		card_flipped.emit(reversed)
 	if reversed_side_texture && root_texture:
 		if reversed:
 			reversed_side_texture.visible = true
@@ -60,10 +67,6 @@ func flip(change: bool = true) -> void:
 			reversed_side_texture.visible = false
 			root_texture.visible = true
 	
-func _process(delta: float) -> void:
-	if moving && old_pos:
-		position += get_global_mouse_position() - old_pos
-		old_pos = get_global_mouse_position()
 
 func _set_rank_text(text: String) -> void:
 	for i: Label in rank_labels: 
@@ -90,13 +93,15 @@ func _input(event: InputEvent) -> void:
 					if !i.can_enter(self):
 						continue
 					if closest_parent:
-						var new_length: float = self.get_rect().get_center().distance_to(i.get_rect().get_center())
+						var new_length: float = self.get_global_rect().get_center().distance_to(i.get_global_rect().get_center())
 						if new_length < length_closest:
 							closest_parent = i
 							length_closest = new_length
+						print(new_length,i)
 					else:
 						closest_parent = i
-						length_closest = self.get_rect().get_center().distance_to(i.get_rect().get_center())
+						length_closest = self.get_global_rect().get_center().distance_to(i.get_global_rect().get_center())
+						print(length_closest,i)
 				if closest_parent && closest_parent.can_enter(self):
 					if parent:
 						card_moved.emit(parent,closest_parent)

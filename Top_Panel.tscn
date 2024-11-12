@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://qciyjl467r8c"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+
+[node name="points" type="Label" parent="."]
+layout_mode = 2
+text = "score : 0"
+
+[node name="space" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="time" type="Label" parent="."]
+layout_mode = 2
+text = "00:00"
+
+[node name="space2" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="moves" type="Label" parent="."]
+layout_mode = 2
+text = "moves : 0"
