@@ -6,7 +6,7 @@ extends Card_Controller
 var cards_discarded: Array[Card] = []
 var cards_prepared: Array[Card] = []
 var recycled: bool = false
-
+var max_cards: int = 3
 signal holder_recycled()
 signal holder_clicked()
 
@@ -24,11 +24,15 @@ func _on_stack_input(event: InputEvent) -> void:
 	):
 		place_cards()
 
+func get_max_cards() -> int:
+	return max_cards
+
+func set_max_cards(val: int) -> void:
+	max_cards = val
 func place_cards() -> void:
 	if recycled:
 		holder_recycled.emit()
 		recycled = false
-	const max_cards: int = 3
 	for i: Card in cards:
 		stacker.remove_child(i)
 	cards_discarded.append_array(cards)

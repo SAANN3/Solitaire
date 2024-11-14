@@ -4,9 +4,7 @@ extends Node
 @onready var card_holder: Card_holder = $Main/MainScreen/Vbox/TopHcontainer/CardHolder
 @onready var tableau_piles: Array[Tableau_Pile] = []
 @onready var timer: Timer = $Timer
-@onready var points_label: Label = $Main/TopPanel/HBoxContainer/points
-@onready var time_label: Label = $Main/TopPanel/HBoxContainer/time
-@onready var moves_label: Label = $Main/TopPanel/HBoxContainer/moves
+@onready var top_panel: Top_Panel = $Main/TopPanel/TopPanel
 @onready var UI_pabel: Control = $UiPanel
 @onready var UI_label: Label = $UiPanel/VBoxContainer/Label
 @onready var UI_restart: Button = $UiPanel/VBoxContainer/Button
@@ -34,7 +32,10 @@ func _ready() -> void:
 		foundation.completed.connect(func (state: bool) -> void: _on_foundation_completed(state, foundation))
 	#_auto_win(cards)
 	insert_cards(cards)
-	bottom_panel.get_settings().init(card_holder)
+	bottom_panel.get_settings().init(
+		card_holder,
+		top_panel
+	)
 
 func insert_cards(cards: Array[Card]) -> void:
 	cards.shuffle()
@@ -98,30 +99,14 @@ func _update_points(change: int) -> void:
 	points += change
 	if points < 0:
 		points = 0
-	points_label.text = "score : " + str(points)	
+	top_panel.set_points(points)	
 
 func _update_moves() -> void:
 	moves += 1
-	moves_label.text = "moves : " + str(moves)
+	top_panel.set_moves(moves)	
 
 func _update_time() -> void:
-	var hours: int = seconds_passed / (60 * 60)
-	var minutes: int = (seconds_passed / 60) % 60
-	var seconds: int = seconds_passed % 60
-	var string: String = "00:00"
-	if minutes >= 10:
-		string[0] = str(minutes)[0]
-		string[1] = str(minutes)[1]
-	else:
-		string[1] = str(minutes)
-	if seconds >= 10:
-		string[3] = str(seconds)[0]
-		string[4] = str(seconds)[1]
-	else:
-		string[4] = str(seconds)
-	if hours > 0:
-		string = str(hours) + ":" + string
-	time_label.text = string
+	top_panel.set_time(seconds_passed)
 	
 
 func _process(delta: float) -> void:

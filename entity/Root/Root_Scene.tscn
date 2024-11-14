@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjtudxbydfwp7"]
+[gd_scene load_steps=11 format=3 uid="uid://bjtudxbydfwp7"]
 
 [ext_resource type="Script" path="res://entity/Root/Root_Scene.gd" id="1_bi4d0"]
+[ext_resource type="PackedScene" uid="uid://bci3pxxdc0dhy" path="res://entity/TopPanel/Top_Panel.tscn" id="2_78csr"]
 [ext_resource type="PackedScene" uid="uid://dq0l7b8i0qose" path="res://entity/Foundation/Foundation.tscn" id="2_ow12a"]
-[ext_resource type="PackedScene" uid="uid://bji5davic22r2" path="res://entity/Card_holder/Card_holder.tscn" id="3_sndy5"]
+[ext_resource type="PackedScene" uid="uid://bji5davic22r2" path="res://entity/CardHolder/Card_holder.tscn" id="3_sndy5"]
 [ext_resource type="PackedScene" uid="uid://blqnju06jpcyk" path="res://entity/TableauPile/Tableau_Pile.tscn" id="4_kxirh"]
 [ext_resource type="PackedScene" uid="uid://cnh2aajt02v3t" path="res://entity/Settings/Bottom_Panel.tscn" id="5_d3tti"]
 
@@ -49,30 +50,8 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_v4s0x")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Main/TopPanel"]
+[node name="TopPanel" parent="Main/TopPanel" instance=ExtResource("2_78csr")]
 layout_mode = 2
-
-[node name="points" type="Label" parent="Main/TopPanel/HBoxContainer"]
-layout_mode = 2
-text = "score : 0"
-
-[node name="space" type="Control" parent="Main/TopPanel/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="time" type="Label" parent="Main/TopPanel/HBoxContainer"]
-layout_mode = 2
-text = "00:00"
-
-[node name="space2" type="Control" parent="Main/TopPanel/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="moves" type="Label" parent="Main/TopPanel/HBoxContainer"]
-layout_mode = 2
-text = "moves : 0"
 
 [node name="MainScreen" type="PanelContainer" parent="Main"]
 layout_mode = 2
@@ -87,6 +66,15 @@ size_flags_horizontal = 4
 layout_mode = 2
 theme_override_constants/separation = 20
 
+[node name="CardHolder" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("3_sndy5")]
+layout_direction = 2
+layout_mode = 2
+
+[node name="space" type="Control" parent="Main/MainScreen/Vbox/TopHcontainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
 [node name="Foundation0" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("2_ow12a")]
 layout_mode = 2
 
@@ -97,14 +85,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Foundation3" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("2_ow12a")]
-layout_mode = 2
-
-[node name="space" type="Control" parent="Main/MainScreen/Vbox/TopHcontainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="CardHolder" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("3_sndy5")]
 layout_mode = 2
 
 [node name="TableauHbox" type="HBoxContainer" parent="Main/MainScreen/Vbox"]

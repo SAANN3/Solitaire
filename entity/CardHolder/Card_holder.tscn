@@ -1,19 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://bji5davic22r2"]
 
-[ext_resource type="Script" path="res://entity/Card_holder/Card_holder.gd" id="1_6ttlg"]
+[ext_resource type="Script" path="res://entity/CardHolder/Card_holder.gd" id="1_6ttlg"]
 [ext_resource type="Texture2D" uid="uid://1s2pdcp0oldl" path="res://sprites/card_background.png" id="2_cykuw"]
 
 [node name="Card_holder" type="HBoxContainer"]
+layout_direction = 1
 offset_right = 184.0
 offset_bottom = 240.0
 theme_override_constants/separation = 20
 script = ExtResource("1_6ttlg")
 
-[node name="Stacker" type="HBoxContainer" parent="."]
-layout_direction = 3
-layout_mode = 2
-theme_override_constants/separation = -120
-
 [node name="Stack" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("2_cykuw")
+
+[node name="Stacker" type="HBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = -120
