@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqghbjjlvovh5"]
 
 [ext_resource type="Script" path="res://entity/Card/Card.gd" id="1_q6dol"]
-[ext_resource type="Texture2D" uid="uid://1s2pdcp0oldl" path="res://sprites/card_background.png" id="2_nkx0g"]
+[ext_resource type="Texture2D" uid="uid://ce3idrd0yhvvq" path="res://sprites/card_up.svg" id="2_l5axy"]
 [ext_resource type="Texture2D" uid="uid://ccraxvi8s7xtm" path="res://sprites/Suit/diamonds.png" id="3_trvxr"]
-[ext_resource type="Texture2D" uid="uid://bl527g4vro1i5" path="res://sprites/card_hidden.png" id="4_y4t18"]
+[ext_resource type="Texture2D" uid="uid://dnqh1ep4pj02a" path="res://sprites/card_hidden.svg" id="4_vg4ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mp0te"]
 size = Vector2(181, 243)
@@ -17,7 +17,7 @@ script = ExtResource("1_q6dol")
 
 [node name="Bg" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_nkx0g")
+texture = ExtResource("2_l5axy")
 stretch_mode = 2
 
 [node name="TextureHolder" type="CenterContainer" parent="Bg"]
@@ -36,7 +36,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Bg/TextureHolder/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 30
 text = "-1"
 
 [node name="SuitTexture" type="TextureRect" parent="Bg/TextureHolder/VBoxContainer"]
@@ -62,14 +62,14 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 3.14159
 pivot_offset = Vector2(12, 18)
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 30
 text = "-1"
 horizontal_alignment = 1
 
 [node name="ReverseSide" type="TextureRect" parent="."]
 visible = false
 layout_mode = 2
-texture = ExtResource("4_y4t18")
+texture = ExtResource("4_vg4ey")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 0

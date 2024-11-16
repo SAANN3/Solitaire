@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjtudxbydfwp7"]
+[gd_scene load_steps=15 format=3 uid="uid://bjtudxbydfwp7"]
 
 [ext_resource type="Script" path="res://entity/Root/Root_Scene.gd" id="1_bi4d0"]
 [ext_resource type="PackedScene" uid="uid://bci3pxxdc0dhy" path="res://entity/TopPanel/Top_Panel.tscn" id="2_78csr"]
+[ext_resource type="Texture2D" uid="uid://dw3bo2efgucc0" path="res://sprites/Panels/top_panel.svg" id="2_k40ab"]
 [ext_resource type="PackedScene" uid="uid://dq0l7b8i0qose" path="res://entity/Foundation/Foundation.tscn" id="2_ow12a"]
 [ext_resource type="PackedScene" uid="uid://bji5davic22r2" path="res://entity/CardHolder/Card_holder.tscn" id="3_sndy5"]
+[ext_resource type="Texture2D" uid="uid://xyldp30rhakf" path="res://sprites/Panels/mid_screen.svg" id="4_cixkm"]
 [ext_resource type="PackedScene" uid="uid://blqnju06jpcyk" path="res://entity/TableauPile/Tableau_Pile.tscn" id="4_kxirh"]
 [ext_resource type="PackedScene" uid="uid://cnh2aajt02v3t" path="res://entity/Settings/Bottom_Panel.tscn" id="5_d3tti"]
+[ext_resource type="Texture2D" uid="uid://bl0vv0gupk747" path="res://sprites/Panels/bottom_panel.svg" id="8_qlcne"]
 
 [sub_resource type="Theme" id="Theme_bnft7"]
 MarginContainer/constants/margin_bottom = 28
@@ -13,15 +16,25 @@ MarginContainer/constants/margin_left = 28
 MarginContainer/constants/margin_right = 28
 MarginContainer/constants/margin_top = 28
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v4s0x"]
-texture_margin_left = 40.0
-texture_margin_top = 20.0
-texture_margin_right = 40.0
-texture_margin_bottom = 20.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpmyo"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+texture = ExtResource("2_k40ab")
+texture_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4enio"]
+texture = ExtResource("4_cixkm")
 texture_margin_left = 20.0
 texture_margin_right = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lsavg"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("8_qlcne")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4lxm"]
 bg_color = Color(0.219501, 0.219501, 0.219501, 1)
@@ -45,10 +58,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
 [node name="TopPanel" type="PanelContainer" parent="Main"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_v4s0x")
+theme_override_styles/panel = SubResource("StyleBoxTexture_vpmyo")
 
 [node name="TopPanel" parent="Main/TopPanel" instance=ExtResource("2_78csr")]
 layout_mode = 2
@@ -61,6 +75,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_4enio")
 [node name="Vbox" type="VBoxContainer" parent="Main/MainScreen"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Control" type="Control" parent="Main/MainScreen/Vbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
 
 [node name="TopHcontainer" type="HBoxContainer" parent="Main/MainScreen/Vbox"]
 layout_mode = 2
@@ -118,7 +137,7 @@ layout_mode = 2
 [node name="BottomPanel" type="PanelContainer" parent="Main"]
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxTexture_4enio")
+theme_override_styles/panel = SubResource("StyleBoxTexture_lsavg")
 
 [node name="Settings" parent="Main/BottomPanel" node_paths=PackedStringArray("ui_parent") instance=ExtResource("5_d3tti")]
 layout_mode = 2

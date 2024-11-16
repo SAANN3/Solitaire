@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bji5davic22r2"]
 
 [ext_resource type="Script" path="res://entity/CardHolder/Card_holder.gd" id="1_6ttlg"]
-[ext_resource type="Texture2D" uid="uid://1s2pdcp0oldl" path="res://sprites/card_background.png" id="2_cykuw"]
+[ext_resource type="Texture2D" uid="uid://d1rrqy867gkla" path="res://sprites/card_holder.png" id="2_bk81e"]
 
 [node name="Card_holder" type="HBoxContainer"]
 layout_direction = 1
@@ -12,7 +12,7 @@ script = ExtResource("1_6ttlg")
 
 [node name="Stack" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_cykuw")
+texture = ExtResource("2_bk81e")
 
 [node name="Stacker" type="HBoxContainer" parent="."]
 layout_direction = 2

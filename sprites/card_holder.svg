@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="180"
+   height="240"
+   viewBox="0 0 47.624999 63.5"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="card_holder.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="1.9670034"
+     inkscape:cx="94.814276"
+     inkscape:cy="134.97689"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="false" />
+  <defs
+     id="defs1">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#invert grid"
+       preserveAspectRatio="xMidYMid"
+       id="pattern43"
+       patternTransform="matrix(-0.57275649,-0.57275649,0.57275649,-0.57275649,0,0)"
+       x="0"
+       y="-13" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="12"
+       height="12"
+       preserveAspectRatio="xMidYMid"
+       id="invert grid"
+       x="0"
+       y="0"
+       style="fill:#07c586"
+       inkscape:label="Inverted grid"
+       inkscape:collect="always"
+       inkscape:isstock="true">
+      <rect
+         style="stroke:none;paint-order:markers fill stroke"
+         id="rect2-0"
+         width="10"
+         height="10"
+         x="0"
+         y="0" />
+    </pattern>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath15">
+      <rect
+         style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:bevel;paint-order:stroke markers fill;stop-color:#000000"
+         id="rect15-7"
+         width="45.034248"
+         height="38.955639"
+         x="262.48285"
+         y="121.00073" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#04724d;fill-opacity:1;stroke:#fdf0d5;stroke-width:2.52307;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1-7"
+       x="1.5083658"
+       y="1.32947"
+       width="45.101879"
+       height="60.976875"
+       rx="2.6458333"
+       ry="2.6458333" />
+    <rect
+       style="fill:url(#pattern43);fill-opacity:1;stroke:#fdf0d5;stroke-width:2.52307;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       x="1.2615588"
+       y="1.2615588"
+       width="45.101879"
+       height="60.976875"
+       rx="2.6458333"
+       ry="2.6458333" />
+  </g>
+</svg>

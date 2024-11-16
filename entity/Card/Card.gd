@@ -22,10 +22,10 @@ var color: CardColor
 
 
 static var _CardColorsTextures: Array[Texture2D] = [
-	load("res://sprites/Suit/hearts.png"),
-	load("res://sprites/Suit/diamonds.png"),
-	load("res://sprites/Suit/spades.png"),
-	load("res://sprites/Suit/clubs.png"),]
+	load("res://sprites/Suit/hearts.svg"),
+	load("res://sprites/Suit/diamonds.svg"),
+	load("res://sprites/Suit/spades.svg"),
+	load("res://sprites/Suit/clubs.svg"),]
 enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS}
 enum CardColor {RED, DARK}
 enum CardRank {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING}
@@ -97,11 +97,9 @@ func _input(event: InputEvent) -> void:
 						if new_length < length_closest:
 							closest_parent = i
 							length_closest = new_length
-						print(new_length,i)
 					else:
 						closest_parent = i
 						length_closest = self.get_global_rect().get_center().distance_to(i.get_global_rect().get_center())
-						print(length_closest,i)
 				if closest_parent && closest_parent.can_enter(self):
 					if parent:
 						card_moved.emit(parent,closest_parent)

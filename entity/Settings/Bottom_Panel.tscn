@@ -1,38 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnh2aajt02v3t"]
+[gd_scene load_steps=5 format=3 uid="uid://cnh2aajt02v3t"]
 
 [ext_resource type="Script" path="res://entity/Settings/Bottom_Panel.gd" id="1_pihg2"]
 [ext_resource type="PackedScene" uid="uid://x87cb7ugkgas" path="res://entity/Settings/Settings.tscn" id="2_0rlbk"]
+[ext_resource type="Texture2D" uid="uid://rkfmf0q1qj46" path="res://sprites/Panels/settings_hover.png" id="2_e8ot3"]
+[ext_resource type="Texture2D" uid="uid://ctheh3eoqgarc" path="res://sprites/Panels/settings_normal.png" id="2_wkxca"]
 
 [node name="BottomPanel" type="HBoxContainer"]
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.093
-offset_right = -1910.0
-offset_bottom = 99.56
+offset_left = -72.0
+offset_right = -1838.0
+offset_bottom = 39.56
 grow_horizontal = 2
 script = ExtResource("1_pihg2")
 
-[node name="Panel" type="Panel" parent="."]
-visible = false
-custom_minimum_size = Vector2(10, 20)
+[node name="Settings" type="VBoxContainer" parent="."]
 layout_mode = 2
-metadata/_tab_index = 0
+size_flags_vertical = 4
 
-[node name="Main" type="Panel" parent="Panel"]
+[node name="hover" type="TextureRect" parent="Settings"]
 visible = false
-custom_minimum_size = Vector2(10, 20)
-layout_mode = 0
-offset_left = -269.0
-offset_top = -291.0
-offset_right = 328.0
-offset_bottom = -36.0
-metadata/_tab_index = 0
-
-[node name="Settings" type="Panel" parent="."]
-custom_minimum_size = Vector2(10, 200)
 layout_mode = 2
-metadata/_tab_index = 0
+texture = ExtResource("2_e8ot3")
+
+[node name="normal" type="TextureRect" parent="Settings"]
+layout_mode = 2
+texture = ExtResource("2_wkxca")
+
+[node name="Label" type="Label" parent="Settings"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "Settings
+"
 
 [node name="Main" parent="Settings" instance=ExtResource("2_0rlbk")]
 visible = false
-layout_mode = 1
+layout_mode = 2

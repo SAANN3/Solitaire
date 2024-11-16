@@ -18,6 +18,7 @@ func _ready() -> void:
 	card_holder.holder_recycled.connect(_on_recycled)
 	timer.timeout.connect(_on_timeout)
 	card_holder.holder_clicked.connect(_on_card_holder_clicked)
+	bottom_panel.panel_change.connect(_on_panel_change)
 	timer.start()
 	UI_restart.pressed.connect(_on_win_button_clicked)
 	var cards: Array[Card] = []
@@ -49,6 +50,12 @@ func insert_cards(cards: Array[Card]) -> void:
 
 func _on_win_button_clicked() -> void:
 	get_tree().reload_current_scene()
+
+func _on_panel_change(visible: bool) -> void:
+	if visible:
+		timer.stop()
+	else:
+		timer.start()
 
 func _auto_win(cards: Array[Card]) -> void: 
 	var pos: int = 0 
