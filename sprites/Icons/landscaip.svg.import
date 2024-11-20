@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl527g4vro1i5"
-path="res://.godot/imported/card_hidden.png-357bb76e89d14405f1d8e6c54426d735.ctex"
+uid="uid://bexeujmdhg5wy"
+path="res://.godot/imported/landscaip.svg-41ea37a302e03debd7af24e3b7b810e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/card_hidden.png"
-dest_files=["res://.godot/imported/card_hidden.png-357bb76e89d14405f1d8e6c54426d735.ctex"]
+source_file="res://sprites/Icons/landscaip.svg"
+dest_files=["res://.godot/imported/landscaip.svg-41ea37a302e03debd7af24e3b7b810e2.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=4.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -1,5 +1,5 @@
 class_name Root_Scene
-extends Node
+extends Control
 
 @onready var card_holder: Card_holder = $Main/MainScreen/Vbox/TopHcontainer/CardHolder
 @onready var tableau_piles: Array[Tableau_Pile] = []
@@ -9,12 +9,18 @@ extends Node
 @onready var UI_label: Label = $UiPanel/VBoxContainer/Label
 @onready var UI_restart: Button = $UiPanel/VBoxContainer/Button
 @onready var bottom_panel: Bottom_Panel = $Main/BottomPanel/Settings
+
 var points: int = 0
 var seconds_passed: int = 0
 var moves: int = 0
 var completed_foundations: Array[Foundation] = []
+var safe_offset: Rect2i = Rect2i()
+var safe_area: Rect2i = DisplayServer.get_display_safe_area()
 
 func _ready() -> void:
+	if !Config.mobile:
+		theme.set_font_size("font_size","Label",16)
+		theme.set_font_size("font_size","Button",16)
 	card_holder.holder_recycled.connect(_on_recycled)
 	timer.timeout.connect(_on_timeout)
 	card_holder.holder_clicked.connect(_on_card_holder_clicked)
@@ -37,6 +43,7 @@ func _ready() -> void:
 		card_holder,
 		top_panel
 	)
+
 
 func insert_cards(cards: Array[Card]) -> void:
 	cards.shuffle()
@@ -81,6 +88,8 @@ func _on_card_moved(old_parent: Card_Controller, new_parent: Card_Controller) ->
 func _on_recycled() -> void:
 	_update_points(-20)
 
+
+
 func _on_foundation_completed(state:bool, foundation: Foundation) -> void:
 	var pos: int = completed_foundations.find(foundation)
 	if pos == -1 && state:
@@ -115,6 +124,3 @@ func _update_moves() -> void:
 func _update_time() -> void:
 	top_panel.set_time(seconds_passed)
 	
-
-func _process(delta: float) -> void:
-	pass

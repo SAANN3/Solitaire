@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmg03wg526wjo"
-path="res://.godot/imported/hearts.png-d59a8ca4edf0322fd1ef4beb3b74845c.ctex"
+uid="uid://dax1uhdj68236"
+path="res://.godot/imported/close.svg-6cd882f1b00a3e7a3a18b78820168422.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Suit/hearts.png"
-dest_files=["res://.godot/imported/hearts.png-d59a8ca4edf0322fd1ef4beb3b74845c.ctex"]
+source_file="res://sprites/Icons/close.svg"
+dest_files=["res://.godot/imported/close.svg-6cd882f1b00a3e7a3a18b78820168422.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

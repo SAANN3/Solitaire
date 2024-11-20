@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://bjtudxbydfwp7"]
 
-[ext_resource type="Script" path="res://entity/Root/Root_Scene.gd" id="1_bi4d0"]
-[ext_resource type="PackedScene" uid="uid://bci3pxxdc0dhy" path="res://entity/TopPanel/Top_Panel.tscn" id="2_78csr"]
-[ext_resource type="Texture2D" uid="uid://dw3bo2efgucc0" path="res://sprites/Panels/top_panel.svg" id="2_k40ab"]
-[ext_resource type="PackedScene" uid="uid://dq0l7b8i0qose" path="res://entity/Foundation/Foundation.tscn" id="2_ow12a"]
-[ext_resource type="PackedScene" uid="uid://bji5davic22r2" path="res://entity/CardHolder/Card_holder.tscn" id="3_sndy5"]
-[ext_resource type="Texture2D" uid="uid://xyldp30rhakf" path="res://sprites/Panels/mid_screen.svg" id="4_cixkm"]
-[ext_resource type="PackedScene" uid="uid://blqnju06jpcyk" path="res://entity/TableauPile/Tableau_Pile.tscn" id="4_kxirh"]
-[ext_resource type="PackedScene" uid="uid://cnh2aajt02v3t" path="res://entity/Settings/Bottom_Panel.tscn" id="5_d3tti"]
-[ext_resource type="Texture2D" uid="uid://bl0vv0gupk747" path="res://sprites/Panels/bottom_panel.svg" id="8_qlcne"]
+[ext_resource type="Script" path="res://entity/Root/Root_Scene.gd" id="1_8pg4l"]
+[ext_resource type="Texture2D" uid="uid://dw3bo2efgucc0" path="res://sprites/Panels/top_panel.svg" id="2_54xvc"]
+[ext_resource type="PackedScene" uid="uid://bci3pxxdc0dhy" path="res://entity/TopPanel/Top_Panel.tscn" id="3_hnyyi"]
+[ext_resource type="Texture2D" uid="uid://xyldp30rhakf" path="res://sprites/Panels/mid_screen.svg" id="4_0skht"]
+[ext_resource type="PackedScene" uid="uid://bji5davic22r2" path="res://entity/CardHolder/Card_holder.tscn" id="5_b1iil"]
+[ext_resource type="PackedScene" uid="uid://dq0l7b8i0qose" path="res://entity/Foundation/Foundation.tscn" id="6_g5xxv"]
+[ext_resource type="PackedScene" uid="uid://blqnju06jpcyk" path="res://entity/TableauPile/Tableau_Pile.tscn" id="7_5aj0g"]
+[ext_resource type="Texture2D" uid="uid://bl0vv0gupk747" path="res://sprites/Panels/bottom_panel.svg" id="8_jvnw2"]
+[ext_resource type="PackedScene" uid="uid://cnh2aajt02v3t" path="res://entity/Settings/Bottom_Panel.tscn" id="9_ga3mh"]
 
 [sub_resource type="Theme" id="Theme_bnft7"]
 MarginContainer/constants/margin_bottom = 28
@@ -21,11 +21,11 @@ content_margin_left = 40.0
 content_margin_top = 40.0
 content_margin_right = 40.0
 content_margin_bottom = 40.0
-texture = ExtResource("2_k40ab")
+texture = ExtResource("2_54xvc")
 texture_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4enio"]
-texture = ExtResource("4_cixkm")
+texture = ExtResource("4_0skht")
 texture_margin_left = 20.0
 texture_margin_right = 20.0
 
@@ -34,12 +34,10 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-texture = ExtResource("8_qlcne")
+texture = ExtResource("8_jvnw2")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4lxm"]
-bg_color = Color(0.219501, 0.219501, 0.219501, 1)
-expand_margin_top = 20.0
-expand_margin_bottom = 20.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywhfq"]
+content_margin_bottom = 160.0
 
 [node name="root" type="Control"]
 layout_mode = 3
@@ -48,8 +46,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = SubResource("Theme_bnft7")
-script = ExtResource("1_bi4d0")
+script = ExtResource("1_8pg4l")
 
 [node name="Main" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -62,9 +62,10 @@ theme_override_constants/separation = 0
 
 [node name="TopPanel" type="PanelContainer" parent="Main"]
 layout_mode = 2
+size_flags_stretch_ratio = 0.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_vpmyo")
 
-[node name="TopPanel" parent="Main/TopPanel" instance=ExtResource("2_78csr")]
+[node name="TopPanel" parent="Main/TopPanel" instance=ExtResource("3_hnyyi")]
 layout_mode = 2
 
 [node name="MainScreen" type="PanelContainer" parent="Main"]
@@ -75,7 +76,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_4enio")
 [node name="Vbox" type="VBoxContainer" parent="Main/MainScreen"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 10
 
 [node name="Control" type="Control" parent="Main/MainScreen/Vbox"]
 custom_minimum_size = Vector2(0, 10)
@@ -85,7 +85,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="CardHolder" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("3_sndy5")]
+[node name="CardHolder" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("5_b1iil")]
 layout_direction = 2
 layout_mode = 2
 
@@ -94,17 +94,22 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="Foundation0" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("2_ow12a")]
+[node name="Foundation0" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("6_g5xxv")]
 layout_mode = 2
 
-[node name="Foundation1" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("2_ow12a")]
+[node name="Foundation1" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("6_g5xxv")]
 layout_mode = 2
 
-[node name="Foundation2" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("2_ow12a")]
+[node name="Foundation2" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("6_g5xxv")]
 layout_mode = 2
 
-[node name="Foundation3" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("2_ow12a")]
+[node name="Foundation3" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("6_g5xxv")]
 layout_mode = 2
+
+[node name="Control2" type="Control" parent="Main/MainScreen/Vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.03
 
 [node name="TableauHbox" type="HBoxContainer" parent="Main/MainScreen/Vbox"]
 layout_mode = 2
@@ -113,35 +118,34 @@ size_flags_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="TableauPile1" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("4_kxirh")]
+[node name="TableauPile1" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_5aj0g")]
 layout_mode = 2
 
-[node name="TableauPile2" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("4_kxirh")]
+[node name="TableauPile2" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_5aj0g")]
 layout_mode = 2
 
-[node name="TableauPile3" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("4_kxirh")]
+[node name="TableauPile3" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_5aj0g")]
 layout_mode = 2
 
-[node name="TableauPile4" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("4_kxirh")]
+[node name="TableauPile4" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_5aj0g")]
 layout_mode = 2
 
-[node name="TableauPile5" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("4_kxirh")]
+[node name="TableauPile5" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_5aj0g")]
 layout_mode = 2
 
-[node name="TableauPile6" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("4_kxirh")]
+[node name="TableauPile6" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_5aj0g")]
 layout_mode = 2
 
-[node name="TableauPile7" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("4_kxirh")]
+[node name="TableauPile7" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_5aj0g")]
 layout_mode = 2
 
 [node name="BottomPanel" type="PanelContainer" parent="Main"]
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_stretch_ratio = 0.1
 theme_override_styles/panel = SubResource("StyleBoxTexture_lsavg")
 
-[node name="Settings" parent="Main/BottomPanel" node_paths=PackedStringArray("ui_parent") instance=ExtResource("5_d3tti")]
+[node name="Settings" parent="Main/BottomPanel" node_paths=PackedStringArray("ui_parent") instance=ExtResource("9_ga3mh")]
 layout_mode = 2
-size_flags_horizontal = 4
 ui_parent = NodePath("../../../GlobalPopup")
 
 [node name="Timer" type="Timer" parent="."]
@@ -149,12 +153,14 @@ ui_parent = NodePath("../../../GlobalPopup")
 [node name="UiPanel" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
-offset_top = 847.0
-offset_bottom = 914.0
+anchor_bottom = 1.0
+offset_top = -274.0
 grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_d4lxm")
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ywhfq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UiPanel"]
 layout_mode = 2

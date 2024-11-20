@@ -1,0 +1,219 @@
+[gd_scene load_steps=15 format=3 uid="uid://dbxpaug1jo4ly"]
+
+[ext_resource type="Script" path="res://entity/Root/Root_Scene.gd" id="1_2llyi"]
+[ext_resource type="Texture2D" uid="uid://dw3bo2efgucc0" path="res://sprites/Panels/top_panel.svg" id="2_35oqg"]
+[ext_resource type="Script" path="res://entity/TopPanel/Top_Panel.gd" id="3_p1os7"]
+[ext_resource type="Texture2D" uid="uid://xyldp30rhakf" path="res://sprites/Panels/mid_screen.svg" id="4_uycf6"]
+[ext_resource type="PackedScene" uid="uid://bji5davic22r2" path="res://entity/CardHolder/Card_holder.tscn" id="5_agvw3"]
+[ext_resource type="PackedScene" uid="uid://dq0l7b8i0qose" path="res://entity/Foundation/Foundation.tscn" id="6_hffiq"]
+[ext_resource type="PackedScene" uid="uid://blqnju06jpcyk" path="res://entity/TableauPile/Tableau_Pile.tscn" id="7_vyejo"]
+[ext_resource type="Texture2D" uid="uid://bl0vv0gupk747" path="res://sprites/Panels/bottom_panel.svg" id="8_wyu8k"]
+[ext_resource type="PackedScene" uid="uid://cnh2aajt02v3t" path="res://entity/Settings/Bottom_Panel.tscn" id="9_egitv"]
+
+[sub_resource type="Theme" id="Theme_bnft7"]
+MarginContainer/constants/margin_bottom = 28
+MarginContainer/constants/margin_left = 28
+MarginContainer/constants/margin_right = 28
+MarginContainer/constants/margin_top = 28
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpmyo"]
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+texture = ExtResource("2_35oqg")
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4enio"]
+texture = ExtResource("4_uycf6")
+texture_margin_left = 20.0
+texture_margin_right = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lsavg"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("8_wyu8k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywhfq"]
+content_margin_bottom = 160.0
+
+[node name="root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_bnft7")
+script = ExtResource("1_2llyi")
+
+[node name="Main" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TopPanel" type="PanelContainer" parent="Main"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vpmyo")
+
+[node name="TopPanel" type="VBoxContainer" parent="Main/TopPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 1
+script = ExtResource("3_p1os7")
+
+[node name="points" type="Label" parent="Main/TopPanel/TopPanel"]
+layout_mode = 2
+text = "score : 0"
+
+[node name="space" type="Control" parent="Main/TopPanel/TopPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="time" type="Label" parent="Main/TopPanel/TopPanel"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "00:00"
+
+[node name="space2" type="Control" parent="Main/TopPanel/TopPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="moves" type="Label" parent="Main/TopPanel/TopPanel"]
+layout_mode = 2
+text = "moves : 0"
+
+[node name="MainScreen" type="PanelContainer" parent="Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_4enio")
+
+[node name="Vbox" type="VBoxContainer" parent="Main/MainScreen"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Control" type="Control" parent="Main/MainScreen/Vbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="TopHcontainer" type="HBoxContainer" parent="Main/MainScreen/Vbox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CardHolder" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("5_agvw3")]
+layout_direction = 2
+layout_mode = 2
+
+[node name="space" type="Control" parent="Main/MainScreen/Vbox/TopHcontainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Foundation0" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("6_hffiq")]
+layout_mode = 2
+
+[node name="Foundation1" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("6_hffiq")]
+layout_mode = 2
+
+[node name="Foundation2" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("6_hffiq")]
+layout_mode = 2
+
+[node name="Foundation3" parent="Main/MainScreen/Vbox/TopHcontainer" instance=ExtResource("6_hffiq")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="Main/MainScreen/Vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.03
+
+[node name="TableauHbox" type="HBoxContainer" parent="Main/MainScreen/Vbox"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TableauPile1" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_vyejo")]
+layout_mode = 2
+
+[node name="TableauPile2" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_vyejo")]
+layout_mode = 2
+
+[node name="TableauPile3" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_vyejo")]
+layout_mode = 2
+
+[node name="TableauPile4" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_vyejo")]
+layout_mode = 2
+
+[node name="TableauPile5" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_vyejo")]
+layout_mode = 2
+
+[node name="TableauPile6" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_vyejo")]
+layout_mode = 2
+
+[node name="TableauPile7" parent="Main/MainScreen/Vbox/TableauHbox" instance=ExtResource("7_vyejo")]
+layout_mode = 2
+
+[node name="BottomPanel" type="PanelContainer" parent="Main"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/panel = SubResource("StyleBoxTexture_lsavg")
+
+[node name="Settings" parent="Main/BottomPanel" node_paths=PackedStringArray("ui_parent") instance=ExtResource("9_egitv")]
+layout_mode = 2
+ui_parent = NodePath("../../../GlobalPopup")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="UiPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -274.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ywhfq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UiPanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UiPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "YOU WON!"
+
+[node name="Button" type="Button" parent="UiPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "RESTART"
+
+[node name="GlobalPopup" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+mouse_filter = 2

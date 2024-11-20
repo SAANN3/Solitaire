@@ -1,5 +1,5 @@
 class_name Top_Panel
-extends HBoxContainer
+extends Container
 
 @onready var points_label: Label = $points
 @onready var time_label: Label = $time

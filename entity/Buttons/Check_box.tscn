@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxnya1dkijiqk"]
+
+[ext_resource type="Script" path="res://entity/Buttons/Check_box.gd" id="1_ma0db"]
+[ext_resource type="Texture2D" uid="uid://cre88e0bdiy0m" path="res://sprites/Interactive/Checkbox_checked.svg" id="1_pu058"]
+[ext_resource type="Texture2D" uid="uid://fsolgap3mwql" path="res://sprites/Interactive/Checkbox_unchecked.svg" id="3_0rjco"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ogdbm"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k2qlm"]
+
+[node name="CheckBox" type="CheckBox"]
+offset_right = 77.0
+offset_bottom = 77.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_icons/checked = SubResource("PlaceholderTexture2D_ogdbm")
+theme_override_icons/unchecked = SubResource("PlaceholderTexture2D_k2qlm")
+script = ExtResource("1_ma0db")
+checked_texture = ExtResource("1_pu058")
+unchecked_texture = ExtResource("3_0rjco")
+
+[node name="checked" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_pu058")
+expand_mode = 1
+
+[node name="unchecked" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_0rjco")
+expand_mode = 1

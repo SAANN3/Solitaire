@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://x87cb7ugkgas"]
+[gd_scene load_steps=10 format=3 uid="uid://x87cb7ugkgas"]
 
 [ext_resource type="Script" path="res://entity/Settings/Settings.gd" id="1_dhfbf"]
 [ext_resource type="Texture2D" uid="uid://6ee6p74gogwo" path="res://sprites/Interactive/button_normal.svg" id="2_lnty1"]
+[ext_resource type="Texture2D" uid="uid://dax1uhdj68236" path="res://sprites/Icons/close.svg" id="3_4ja1d"]
+[ext_resource type="PackedScene" uid="uid://kk25ata0fejq" path="res://entity/Buttons/Check_button.tscn" id="3_5d30v"]
+[ext_resource type="PackedScene" uid="uid://bxnya1dkijiqk" path="res://entity/Buttons/Check_box.tscn" id="3_ag1vr"]
+[ext_resource type="Texture2D" uid="uid://bexeujmdhg5wy" path="res://sprites/Icons/landscaip.svg" id="5_1xtlq"]
+[ext_resource type="Texture2D" uid="uid://b080vcf8tu2q0" path="res://sprites/Icons/portrait.svg" id="6_bhf2x"]
+[ext_resource type="Texture2D" uid="uid://qimveq87gju3" path="res://sprites/Icons/one_draw.svg" id="7_gr5ne"]
+[ext_resource type="Texture2D" uid="uid://bna084sgsjk1a" path="res://sprites/Icons/three_draw.svg" id="8_ku0ce"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -14,20 +21,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_dhfbf")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel2" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel2" type="NinePatchRect" parent="."]
-layout_mode = 2
-offset_left = 706.0
-offset_top = 105.5
-offset_right = 1214.0
-offset_bottom = 974.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_lnty1")
@@ -40,138 +38,220 @@ axis_stretch_vertical = 1
 
 [node name="CenterContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -194.0
-offset_top = -203.0
-offset_right = 194.0
-offset_bottom = 203.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+alignment = 1
 
-[node name="CloseButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-text = "X"
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/margin_left = 160
-theme_override_constants/margin_top = 160
-theme_override_constants/margin_right = 160
-theme_override_constants/margin_bottom = 160
-
-[node name="HBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_constants/separation = 40
 
-[node name="CardHolderLayout" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="CardHolderLayout" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/CardHolderLayout"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/CardHolderLayout"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 3
 text = "Layout"
+horizontal_alignment = 1
 
-[node name="CheckButton" type="CheckButton" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/CardHolderLayout"]
+[node name="CheckButton" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/CardHolderLayout" instance=ExtResource("3_5d30v")]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="TopBar" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="TopBar" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/TopBar"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Top panel"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/TopBar"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Score" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/TopBar/HBoxContainer"]
+[node name="Score" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/TopBar/HBoxContainer/Score"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar/HBoxContainer/Score"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Score"
 
-[node name="CheckBox" type="CheckBox" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/TopBar/HBoxContainer/Score"]
+[node name="CheckBox" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar/HBoxContainer/Score" instance=ExtResource("3_ag1vr")]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_vertical = 8
 
-[node name="Time" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/TopBar/HBoxContainer"]
+[node name="Time" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/TopBar/HBoxContainer/Time"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar/HBoxContainer/Time"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Time"
 
-[node name="CheckBox" type="CheckBox" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/TopBar/HBoxContainer/Time"]
+[node name="CheckBox" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar/HBoxContainer/Time" instance=ExtResource("3_ag1vr")]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_vertical = 10
 
-[node name="Moves" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/TopBar/HBoxContainer"]
+[node name="Moves" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 6
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/TopBar/HBoxContainer/Moves"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar/HBoxContainer/Moves"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Moves"
 
-[node name="CheckBox" type="CheckBox" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/TopBar/HBoxContainer/Moves"]
+[node name="CheckBox" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar/HBoxContainer/Moves" instance=ExtResource("3_ag1vr")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Orientation" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Draw" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Orientation"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Orientation"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Orientation"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/Draw"]
+[node name="landscape" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Orientation/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_bhf2x")
+expand_mode = 3
+
+[node name="CheckButton" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Orientation/HBoxContainer" instance=ExtResource("3_5d30v")]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="portrait" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Orientation/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_1xtlq")
+expand_mode = 3
+
+[node name="WindowMode" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/WindowMode"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Window mode
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/WindowMode"]
+layout_mode = 2
+
+[node name="windowed" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/WindowMode/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Windowed"
+
+[node name="CheckButton" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/WindowMode/HBoxContainer" instance=ExtResource("3_5d30v")]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="fullscreen" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/WindowMode/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Fullscreen"
+
+[node name="Draw" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Draw"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Draw amount
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/Draw"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Draw"]
 layout_mode = 2
 
-[node name="1" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/Draw/HBoxContainer"]
+[node name="1" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Draw/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "1"
+texture = ExtResource("7_gr5ne")
+expand_mode = 3
 
-[node name="CheckButton" type="CheckButton" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/Draw/HBoxContainer"]
+[node name="CheckButton" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Draw/HBoxContainer" instance=ExtResource("3_5d30v")]
+custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="3" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/Draw/HBoxContainer"]
+[node name="3" type="TextureRect" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Draw/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "3"
+texture = ExtResource("8_ku0ce")
+expand_mode = 3
 
-[node name="Reset" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Reset" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/Reset"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Reset"]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "Restart"
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/Reset"]
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Reset"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Restart"
+text = "New game"
+
+[node name="CloseContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+metadata/_edit_use_anchors_ = true
+
+[node name="CloseButton" type="Button" parent="CloseContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_icons/icon = ExtResource("3_4ja1d")

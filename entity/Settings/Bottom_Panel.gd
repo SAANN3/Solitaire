@@ -12,6 +12,11 @@ var enabledNode: Control = null
 signal panel_change(opened: bool)
 
 func _ready() -> void:
+	if !Config.mobile:
+		textureSettings_hover.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+		textureSettings_normal.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+		textureSettings_hover.expand_mode = TextureRect.EXPAND_KEEP_SIZE
+		textureSettings_normal.expand_mode = TextureRect.EXPAND_KEEP_SIZE
 	nodes.assign(get_children())
 	settings_hbox.mouse_entered.connect(func () -> void: _on_settings_hover(true))
 	settings_hbox.mouse_exited.connect(func () -> void: _on_settings_hover(false))
@@ -23,14 +28,16 @@ func _ready() -> void:
 			main_node.closed.connect(func () -> void: panel_change.emit(false))
 			main_node.reparent(ui_parent)
 			_set_main_visible(i, false)
-	
+	if Config.settings_opened:
+		_set_main_visible(settings_hbox, true)
+		Config.settings_opened = false
 
 func get_settings() -> Settings:
 	return settings
 
 func _bottom_bar_clicked(node: Control, event: InputEvent) -> void:
 	if event is InputEventMouseButton: 
-		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed && node.get_global_rect().has_point(event.global_position):
+		if event.button_index == MOUSE_BUTTON_LEFT && event.is_released() && node.get_global_rect().has_point(event.global_position):
 			_set_main_visible(node, true)
 			panel_change.emit(true)
 

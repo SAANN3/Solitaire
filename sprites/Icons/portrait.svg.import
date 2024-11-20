@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccraxvi8s7xtm"
-path="res://.godot/imported/diamonds.png-144c5de5ffd244a9a09d31d3cfade76b.ctex"
+uid="uid://b080vcf8tu2q0"
+path="res://.godot/imported/portrait.svg-ee88a41ecbc73d6f75f82274506a904b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Suit/diamonds.png"
-dest_files=["res://.godot/imported/diamonds.png-144c5de5ffd244a9a09d31d3cfade76b.ctex"]
+source_file="res://sprites/Icons/portrait.svg"
+dest_files=["res://.godot/imported/portrait.svg-ee88a41ecbc73d6f75f82274506a904b.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=4.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

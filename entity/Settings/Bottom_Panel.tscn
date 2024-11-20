@@ -6,33 +6,34 @@
 [ext_resource type="Texture2D" uid="uid://ctheh3eoqgarc" path="res://sprites/Panels/settings_normal.png" id="2_wkxca"]
 
 [node name="BottomPanel" type="HBoxContainer"]
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.093
-offset_left = -72.0
-offset_right = -1838.0
-offset_bottom = 39.56
-grow_horizontal = 2
+offset_right = 186.0
+offset_bottom = 131.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_pihg2")
 
 [node name="Settings" type="VBoxContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="hover" type="TextureRect" parent="Settings"]
 visible = false
 layout_mode = 2
 texture = ExtResource("2_e8ot3")
+expand_mode = 5
+stretch_mode = 4
 
 [node name="normal" type="TextureRect" parent="Settings"]
 layout_mode = 2
 texture = ExtResource("2_wkxca")
+expand_mode = 5
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="Settings"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-text = "Settings
-"
+text = "Settings"
 
 [node name="Main" parent="Settings" instance=ExtResource("2_0rlbk")]
 visible = false

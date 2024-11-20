@@ -3,10 +3,12 @@ extends CenterContainer
 
 @onready var root_texture: TextureRect = get_node("Bg")
 @onready var rank_labels: Array[Label] = [
-	get_node("Bg/TextureHolder/VBoxContainer/HBoxContainer2/Label"),
-	get_node("Bg/TextureHolder/VBoxContainer/HBoxContainer/Control/Label")]
-@onready var suit_texture: TextureRect = get_node("Bg/TextureHolder/VBoxContainer/SuitTexture")
+	get_node("Bg/TextureHolder/HBoxContainer/Label")
+	#get_node("Bg/TextureHolder/Control/Label2")
+]
+@onready var suit_texture: TextureRect = get_node("Bg/TextureHolder/SuitTexture")
 @onready var reversed_side_texture: TextureRect = get_node("ReverseSide")
+
 var mouse_inside: bool = false
 var moving: bool = false
 var enabled: bool = false
@@ -41,6 +43,7 @@ static func spawn(_rank: CardRank, _suit: Suit) -> Card:
 	return card
 
 func _ready() -> void:
+	_set_rank_font_size(1)
 	root_texture.connect("mouse_entered", func() -> void: _on_mouse_entered(true))
 	root_texture.connect("mouse_exited",  func() -> void: _on_mouse_entered(false))
 	suit_texture.texture = _CardColorsTextures[suit]
@@ -51,6 +54,7 @@ func _ready() -> void:
 	flip(false)
 	
 func _process(delta: float) -> void:
+	
 	if moving && old_pos:	
 		position += get_global_mouse_position() - old_pos
 		old_pos = get_global_mouse_position()
@@ -72,6 +76,16 @@ func _set_rank_text(text: String) -> void:
 	for i: Label in rank_labels: 
 		i.text = text
 
+func _set_rank_font_size(size: int) -> void:
+	for i: Label in rank_labels:
+		if Config.mobile:
+			i.add_theme_font_size_override("font_size", 68)
+		else:
+			i.add_theme_font_size_override("font_size", 24)
+		if color == CardColor.RED:
+			i.add_theme_color_override("font_color","#cf1259")
+		else:
+			i.add_theme_color_override("font_color","#0A100D")
 func _on_mouse_entered(state: bool) -> void:
 	mouse_inside = state
 
@@ -109,6 +123,8 @@ func _input(event: InputEvent) -> void:
 			moving = false
 			position = default_pos
 			z_index = old_z
+
+
 
 
 func _exit_tree() -> void:

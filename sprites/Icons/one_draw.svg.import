@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1s2pdcp0oldl"
-path="res://.godot/imported/card_background.png-83b5bb4c5f658886a129aa99528601a8.ctex"
+uid="uid://qimveq87gju3"
+path="res://.godot/imported/one_draw.svg-279b09ade263bcb8b17b3b346be4f95a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/card_background.png"
-dest_files=["res://.godot/imported/card_background.png-83b5bb4c5f658886a129aa99528601a8.ctex"]
+source_file="res://sprites/Icons/one_draw.svg"
+dest_files=["res://.godot/imported/one_draw.svg-279b09ade263bcb8b17b3b346be4f95a.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=2.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
