@@ -13,8 +13,8 @@ size = Vector2(181, 243)
 
 [node name="Card" type="CenterContainer"]
 layout_direction = 2
-offset_right = 128.0
-offset_bottom = 128.0
+offset_right = 180.0
+offset_bottom = 240.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_q6dol")
@@ -22,7 +22,6 @@ script = ExtResource("1_q6dol")
 [node name="Bg" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("2_l5axy")
-stretch_mode = 2
 
 [node name="TextureHolder" type="MarginContainer" parent="Bg"]
 layout_mode = 1

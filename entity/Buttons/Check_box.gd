@@ -27,6 +27,7 @@ func _ready() -> void:
 		set_custom_minimum_size(Vector2(240,240))
 	else:
 		set_custom_minimum_size(Vector2(60,60))
+
 func pressed(state: bool) -> void:
 	if state:
 		checked.visible = true

@@ -3,7 +3,7 @@ extends Base_Bottom
 
 enum Positioning {LEFT, RIGHT}
 
-@onready var holder_layout_btn: CheckBox = $CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/CardHolderLayout/CheckButton
+@onready var holder_layout_btn: CheckBox = $CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/CardHolderLayout/HBoxContainer/CheckButton
 @onready var reset_btn: Button = $CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/Reset/Button
 @onready var close_btn: Button = $CloseContainer/CloseButton
 @onready var top_panel_score_btn: CheckBox = $CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/TopBar/HBoxContainer/Score/CheckBox
@@ -67,8 +67,9 @@ func _ready() -> void:
 	
 	holder_layout_btn.toggled.connect(_set_holder_layout)
 	close_btn.pressed.connect(_close)
-	reset_btn.pressed.connect(get_tree().reload_current_scene)
+	reset_btn.pressed.connect(Config.restart)
 	card_holder_max_cards_btn.toggled.connect(_set_max_cards)
+
 
 func _close() -> void:
 	Config.saveSettings(self)

@@ -9,6 +9,8 @@ extends CenterContainer
 @onready var suit_texture: TextureRect = get_node("Bg/TextureHolder/SuitTexture")
 @onready var reversed_side_texture: TextureRect = get_node("ReverseSide")
 
+var not_reversed: bool = false
+
 var mouse_inside: bool = false
 var moving: bool = false
 var enabled: bool = false
@@ -27,7 +29,8 @@ static var _CardColorsTextures: Array[Texture2D] = [
 	load("res://sprites/Suit/hearts.svg"),
 	load("res://sprites/Suit/diamonds.svg"),
 	load("res://sprites/Suit/spades.svg"),
-	load("res://sprites/Suit/clubs.svg"),]
+	load("res://sprites/Suit/clubs.svg")
+]
 enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS}
 enum CardColor {RED, DARK}
 enum CardRank {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING}
@@ -37,6 +40,8 @@ signal card_flipped(reversed: bool)
 
 static func spawn(_rank: CardRank, _suit: Suit) -> Card:
 	var card: Card = preload("res://entity/Card/Card.tscn").instantiate()
+	card.card_moved.connect(Config.root.on_card_moved)
+	card.card_flipped.connect(Config.root.on_card_flipped)
 	card.rank = _rank
 	card.suit = _suit
 	card.color = CardColor.RED if _suit <= 1 else CardColor.DARK
@@ -54,7 +59,6 @@ func _ready() -> void:
 	flip(false)
 	
 func _process(delta: float) -> void:
-	
 	if moving && old_pos:	
 		position += get_global_mouse_position() - old_pos
 		old_pos = get_global_mouse_position()
@@ -125,7 +129,17 @@ func _input(event: InputEvent) -> void:
 			z_index = old_z
 
 
+func save() -> Dictionary:
+	return {
+		"rank": rank,
+		"suit": suit,
+		"reversed": reversed
+	}
 
-
+static func load_dict(dict: Dictionary) -> Card:
+	var card: Card = Card.spawn(dict["rank"], dict["suit"])
+	card.not_reversed = !dict["reversed"]
+	return card
+	
 func _exit_tree() -> void:
 	enabled = false

@@ -18,6 +18,7 @@ var safe_offset: Rect2i = Rect2i()
 var safe_area: Rect2i = DisplayServer.get_display_safe_area()
 
 func _ready() -> void:
+	Config.root = self
 	if !Config.mobile:
 		theme.set_font_size("font_size","Label",16)
 		theme.set_font_size("font_size","Button",16)
@@ -26,25 +27,63 @@ func _ready() -> void:
 	card_holder.holder_clicked.connect(_on_card_holder_clicked)
 	bottom_panel.panel_change.connect(_on_panel_change)
 	timer.start()
-	UI_restart.pressed.connect(_on_win_button_clicked)
+	UI_restart.pressed.connect(Config.restart)
+	
+	if Config.saved_game:
+		load_old_game(Config.saved_game)
+	else:
+		start_new_game()
+
+	bottom_panel.get_settings().init(
+		card_holder,
+		top_panel
+	)
+	
+
+func start_new_game() -> void:
 	var cards: Array[Card] = []
 	for rank: int in Card.CardRank.values():
 		for suit: int in Card.Suit.values():
 			var card: Card = Card.spawn(rank, suit)
-			card.card_moved.connect(_on_card_moved)
-			card.card_flipped.connect(_on_card_flipped)
 			cards.append(card)
 	for i: int in range(0,4):
 		var foundation: Foundation = get_node("Main/MainScreen/Vbox/TopHcontainer/Foundation%d" % i)
 		foundation.completed.connect(func (state: bool) -> void: _on_foundation_completed(state, foundation))
 	#_auto_win(cards)
 	insert_cards(cards)
-	bottom_panel.get_settings().init(
-		card_holder,
-		top_panel
-	)
 
-
+func load_old_game(dict: Dictionary) -> void:
+	for i: int in range(0,4):
+		var foundation: Foundation = get_node("Main/MainScreen/Vbox/TopHcontainer/Foundation%d" % i)
+		foundation.completed.connect(func (state: bool) -> void: _on_foundation_completed(state, foundation))
+		foundation.load_dict(dict["foundation"][i])
+	for i: int in range(1,8):
+		var tableau: Tableau_Pile = get_node("Main/MainScreen/Vbox/TableauHbox/TableauPile%d" % i)
+		tableau.load_dict(dict["tableau"][i - 1])
+	card_holder.load_dict(dict["holder"])
+	points = dict["points"]
+	seconds_passed = dict["seconds"]
+	moves = dict["moves"]
+	_update_points(0)
+	_update_moves(false)
+	_update_time()
+	
+func save_old_game() -> Dictionary:
+	return {
+		"points": points,
+		"seconds": seconds_passed,
+		"moves": moves,
+		"foundation": range(0,4).map(
+			func (i: int) -> Dictionary: \
+				return get_node("Main/MainScreen/Vbox/TopHcontainer/Foundation%d" % i).save()
+		),
+		"tableau": range(1,8).map(
+			func (i: int) -> Dictionary: \
+				return get_node("Main/MainScreen/Vbox/TableauHbox/TableauPile%d" % i).save()
+		),
+		"holder": card_holder.save()
+	}
+	
 func insert_cards(cards: Array[Card]) -> void:
 	cards.shuffle()
 	var pos: int = 0
@@ -72,11 +111,11 @@ func _auto_win(cards: Array[Card]) -> void:
 			foundation.enter(cards[pos])
 			pos += 1
 
-func _on_card_flipped(looking_direction: bool) -> void:
+func on_card_flipped(looking_direction: bool) -> void:
 	if (!looking_direction):
 		_update_points(2)
 	
-func _on_card_moved(old_parent: Card_Controller, new_parent: Card_Controller) -> void:
+func on_card_moved(old_parent: Card_Controller, new_parent: Card_Controller) -> void:
 	if new_parent is Foundation && !old_parent is Foundation :
 		_update_points(10)
 	if old_parent is Foundation && new_parent is Tableau_Pile:
@@ -99,7 +138,6 @@ func _on_foundation_completed(state:bool, foundation: Foundation) -> void:
 	if completed_foundations.size() == 4:
 		UI_pabel.visible = true
 		UI_label.text = "You Won!"
-		print("won")
 
 func _on_timeout() -> void:
 	seconds_passed += 1
@@ -117,8 +155,9 @@ func _update_points(change: int) -> void:
 		points = 0
 	top_panel.set_points(points)	
 
-func _update_moves() -> void:
-	moves += 1
+func _update_moves(increment: bool = true) -> void:
+	if increment:
+		moves += 1
 	top_panel.set_moves(moves)	
 
 func _update_time() -> void:

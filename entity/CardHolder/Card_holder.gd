@@ -29,6 +29,7 @@ func get_max_cards() -> int:
 
 func set_max_cards(val: int) -> void:
 	max_cards = val
+	
 func place_cards() -> void:
 	if recycled:
 		holder_recycled.emit()
@@ -52,3 +53,19 @@ func place_cards() -> void:
 
 func load_cards(_cards: Array[Card]) -> void:
 	cards_prepared = _cards
+
+func save() -> Dictionary:
+	var _dict: Dictionary = super()
+	_dict.merge({
+		"cards_discarded": cards_discarded.map(func (elem: Card) -> Dictionary: return elem.save()),
+		"cards_prepared": cards_prepared.map(func (elem: Card) -> Dictionary: return elem.save()),
+		"recycled": recycled,
+	})
+	return _dict
+
+func load_dict(dict: Dictionary) -> void:
+	cards_discarded.assign(dict["cards_discarded"].map(func (elem: Dictionary) -> Card: return Card.load_dict(elem)))
+	cards_prepared.assign(dict["cards_prepared"].map(func (elem: Dictionary) -> Card: return Card.load_dict(elem)))
+	recycled = dict["recycled"]
+	for i: Dictionary in dict["cards"]:
+		enter(Card.load_dict(i))

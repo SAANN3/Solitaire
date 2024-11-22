@@ -74,11 +74,28 @@ size_flags_horizontal = 3
 text = "Layout"
 horizontal_alignment = 1
 
-[node name="CheckButton" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/CardHolderLayout" instance=ExtResource("3_5d30v")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/CardHolderLayout"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="left" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/CardHolderLayout/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Left
+"
+horizontal_alignment = 1
+
+[node name="CheckButton" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/CardHolderLayout/HBoxContainer" instance=ExtResource("3_5d30v")]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="right" type="Label" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer/CardHolderLayout/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Right"
+horizontal_alignment = 1
 
 [node name="TopBar" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
 layout_mode = 2

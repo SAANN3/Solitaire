@@ -3,7 +3,6 @@ extends Card_Controller
 
 @onready var pile: VBoxContainer = $CenterContainer/pile
 @onready var area: Area2D = $Control/Area2D
-var accepting: bool = false
 
 func _ready() -> void:
 	cards_holder = pile
@@ -25,11 +24,14 @@ func can_enter(card: Card) -> bool:
 	else:
 		return false
 
-func load_cards(_cards: Array[Card]) -> void:
+func load_cards(_cards: Array[Card], flip: bool = true) -> void:
 	for i: Card in _cards: 
-		if _cards.find(i) + 1 < _cards.size() :
+		if i.not_reversed:
+			continue
+		if _cards.find(i) + 1 < _cards.size() && flip:
 			i.flip()
 	super(_cards)
+
 
 func _on_card_left() -> void:
 	if cards.size() > 0: 

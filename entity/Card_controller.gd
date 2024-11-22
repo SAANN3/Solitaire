@@ -4,7 +4,6 @@ extends Control
 var cards: Array[Card] = []
 var cards_holder: Node = null
 var collision: Node = null
-var allow_entering: bool = false
 
 
 func _ready() -> void:
@@ -57,3 +56,15 @@ func _on_card_enter() -> void:
 	
 func can_enter(card: Card) -> bool:
 	return false
+
+func save() -> Dictionary:
+	return {
+		"class": self.get_script().get_global_name(),
+		"cards": cards.map(func (elem: Card) -> Dictionary: return elem.save())
+	}
+
+func load_dict(dict: Dictionary) -> void:
+	if dict["cards"].size() > 0:
+		var arr: Array[Card] = []
+		arr.assign(dict["cards"].map(func (elem: Dictionary) -> Card: return Card.load_dict(elem)))
+		load_cards(arr)

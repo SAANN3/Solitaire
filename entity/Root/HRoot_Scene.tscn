@@ -183,6 +183,7 @@ ui_parent = NodePath("../../../GlobalPopup")
 
 [node name="UiPanel" type="PanelContainer" parent="."]
 visible = false
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -206,7 +207,7 @@ text = "YOU WON!"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "RESTART"
+text = "NEW GAME"
 
 [node name="GlobalPopup" type="HBoxContainer" parent="."]
 layout_mode = 1

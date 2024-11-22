@@ -33,3 +33,8 @@ func _on_card_left() -> void:
 func _on_card_enter() -> void:
 	if cards.size() > 0 && cards[cards.size() - 1].rank == Card.CardRank.KING:
 		completed.emit(true)
+
+func load_dict(dict: Dictionary) -> void:
+	super(dict)
+	_on_card_enter()
+	
