@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0.0156863, 0.447059, 0.301961, 1)
 boot_splash/image="res://foreground.png"
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
