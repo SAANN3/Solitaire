@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="432"
+   height="432"
+   viewBox="0 0 432 432"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="background.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:zoom="0.49175084"
+     inkscape:cx="-306.0493"
+     inkscape:cy="297.9151"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="display:inline;fill:#85a479;fill-opacity:1;stroke:#85a479;stroke-width:28.8;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect1"
+       height="403.19998"
+       x="14.399998"
+       y="14.399998"
+       ry="59.590244"
+       width="403.20001"
+       onclick="" />
+    <path
+       style="display:none;fill:#85a479;fill-opacity:1;stroke:#85a479;stroke-width:2;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       d="m 14.436385,30.582023 c 0,0 3.954327,9.166849 12.761691,6.830201 C 36.00544,35.075576 48.048164,2.9017338 45.352032,14.40523 42.6559,25.908727 37.443378,38.131193 37.443378,38.131193 c 0,0 -8.807365,17.434987 -16.89576,6.111232 C 12.459221,32.918671 14.436385,30.582023 14.436385,30.582023 Z"
+       id="path4" />
+  </g>
+</svg>

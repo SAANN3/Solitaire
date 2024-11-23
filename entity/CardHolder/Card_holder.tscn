@@ -1,20 +1,134 @@
-[gd_scene load_steps=3 format=3 uid="uid://bji5davic22r2"]
+[gd_scene load_steps=8 format=3 uid="uid://bji5davic22r2"]
 
 [ext_resource type="Script" path="res://entity/CardHolder/Card_holder.gd" id="1_6ttlg"]
 [ext_resource type="Texture2D" uid="uid://d1rrqy867gkla" path="res://sprites/card_holder.png" id="2_bk81e"]
+[ext_resource type="Texture2D" uid="uid://c7vukp7ytge5x" path="res://sprites/card_holder_empty.png" id="2_x2nep"]
+
+[sub_resource type="Animation" id="Animation_odkqn"]
+resource_name = "show"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Stacker:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-200, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Stacker:theme_override_constants/separation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-180, -120]
+}
+
+[sub_resource type="Animation" id="Animation_q6d2w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Stacker:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Stacker:theme_override_constants/separation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-120]
+}
+
+[sub_resource type="Animation" id="Animation_gts6f"]
+resource_name = "show_right"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Stacker:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Stacker:theme_override_constants/separation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-180, -120]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8a3ne"]
+_data = {
+"RESET": SubResource("Animation_q6d2w"),
+"show": SubResource("Animation_odkqn"),
+"show_right": SubResource("Animation_gts6f")
+}
 
 [node name="Card_holder" type="HBoxContainer"]
-layout_direction = 1
 offset_right = 184.0
 offset_bottom = 240.0
 theme_override_constants/separation = 20
 script = ExtResource("1_6ttlg")
 
-[node name="Stack" type="TextureRect" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="StackEmpty" type="TextureRect" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_x2nep")
+
+[node name="Stack" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
 texture = ExtResource("2_bk81e")
 
-[node name="Stacker" type="HBoxContainer" parent="."]
-layout_direction = 2
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Stacker" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -120.0
+offset_right = 300.0
+offset_bottom = 120.0
+grow_vertical = 2
 theme_override_constants/separation = -120
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8a3ne")
+}

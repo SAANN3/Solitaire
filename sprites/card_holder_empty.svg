@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="180"
+   height="240"
+   viewBox="0 0 47.624999 63.5"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="card_holder_empty.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="1.9670034"
+     inkscape:cx="152.77045"
+     inkscape:cy="134.97689"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker6"
+       refX="0"
+       refY="0"
+       orient="-66.00"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="-2.00"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath15">
+      <rect
+         style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:bevel;paint-order:stroke markers fill;stop-color:#000000"
+         id="rect15-7"
+         width="45.034248"
+         height="38.955639"
+         x="262.48285"
+         y="121.00073" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#04724d;fill-opacity:1;stroke:#fdf0d5;stroke-width:2.52307;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1-7"
+       x="1.5083658"
+       y="1.32947"
+       width="45.101879"
+       height="60.976875"
+       rx="2.6458333"
+       ry="2.6458333" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#fdf0d5;stroke-width:2.52307;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       x="1.2615588"
+       y="1.2615588"
+       width="45.101879"
+       height="60.976875"
+       rx="2.6458333"
+       ry="2.6458333" />
+    <path
+       id="path1"
+       style="fill:none;stroke:#fdf0d5;stroke-width:2.11667;stroke-dasharray:none;stroke-opacity:1;marker-mid:url(#Triangle);marker-end:url(#marker6);paint-order:stroke fill markers"
+       d="M 33.962381,21.600118 C 47.495556,35.133293 27.195792,55.433056 13.662618,41.899882 0.1294435,28.366707 20.429207,8.0669434 33.962381,21.600118 Z"
+       sodipodi:nodetypes="sss" />
+  </g>
+</svg>

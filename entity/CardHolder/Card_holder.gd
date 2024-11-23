@@ -1,7 +1,9 @@
 class_name Card_holder
 extends Card_Controller
-@onready var stacker: Control = $Stacker
-@onready var stack: TextureRect = $Stack
+@onready var stacker: Control = $Control/Stacker
+@onready var stack_empty: TextureRect = $CenterContainer/StackEmpty
+@onready var stack: TextureRect = $CenterContainer/Stack
+@onready var animation: AnimationPlayer = $AnimationPlayer
 
 var cards_discarded: Array[Card] = []
 var cards_prepared: Array[Card] = []
@@ -11,8 +13,8 @@ signal holder_recycled()
 signal holder_clicked()
 
 func _ready() -> void:
-	stack.gui_input.connect(_on_stack_input)
-	cards_holder = $Stacker
+	$CenterContainer.gui_input.connect(_on_stack_input)
+	cards_holder = $Control/Stacker
 	super()
 
 func _on_stack_input(event: InputEvent) -> void:
@@ -22,7 +24,9 @@ func _on_stack_input(event: InputEvent) -> void:
 		get_global_rect().has_point(get_global_mouse_position()) && 
 		event.is_pressed()
 	):
-		place_cards()
+		if !animation.is_playing():
+			place_cards()
+			animation.play("show_right" if layout_direction == LAYOUT_DIRECTION_RTL else "show" )
 
 func get_max_cards() -> int:
 	return max_cards
@@ -42,6 +46,8 @@ func place_cards() -> void:
 		cards_prepared.append_array(cards_discarded)
 		cards_discarded.clear()
 		recycled = true
+		stack_empty.visible = false
+		stack.visible = true
 		return
 	for i: int in range(0,max_cards):
 		var card: Card = cards_prepared.pop_front()
@@ -49,6 +55,9 @@ func place_cards() -> void:
 			enter(card)
 		else :
 			break
+	if cards_prepared.size() == 0:
+		stack_empty.visible = true
+		stack.visible = false
 	holder_clicked.emit()
 
 func load_cards(_cards: Array[Card]) -> void:
@@ -69,3 +78,6 @@ func load_dict(dict: Dictionary) -> void:
 	recycled = dict["recycled"]
 	for i: Dictionary in dict["cards"]:
 		enter(Card.load_dict(i))
+	if cards_prepared.size() == 0:
+		stack_empty.visible = true
+		stack.visible = false

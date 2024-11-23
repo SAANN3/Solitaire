@@ -1,5 +1,5 @@
 class_name Card
-extends CenterContainer
+extends Control
 
 @onready var root_texture: TextureRect = get_node("Bg")
 @onready var rank_labels: Array[Label] = [
@@ -8,6 +8,7 @@ extends CenterContainer
 ]
 @onready var suit_texture: TextureRect = get_node("Bg/TextureHolder/SuitTexture")
 @onready var reversed_side_texture: TextureRect = get_node("ReverseSide")
+@onready var animation: AnimationPlayer = $AnimationPlayer
 
 var not_reversed: bool = false
 
@@ -74,6 +75,8 @@ func flip(change: bool = true) -> void:
 		else:
 			reversed_side_texture.visible = false
 			root_texture.visible = true
+			if change:
+				animation.play("flip")
 	
 
 func _set_rank_text(text: String) -> void:
