@@ -124,6 +124,6 @@ func _set_window_mode(state: bool) -> void:
 	if state:
 		mode = DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN
 	else:
-		mode = DisplayServer.WindowMode.WINDOW_MODE_MINIMIZED
+		mode = DisplayServer.WindowMode.WINDOW_MODE_WINDOWED
 	Config.set_window_mode(mode)
 		
