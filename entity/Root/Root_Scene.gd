@@ -22,6 +22,9 @@ func _ready() -> void:
 	if !Config.mobile:
 		theme.set_font_size("font_size","Label",16)
 		theme.set_font_size("font_size","Button",16)
+		if Config.settingsConf.orientation != DisplayServer.ScreenOrientation.SCREEN_LANDSCAPE:
+			$Main/TopPanel.get_theme_stylebox("panel").set_content_margin_all(10)
+			$Main/BottomPanel.get_theme_stylebox("panel").set_content_margin_all(1)
 	card_holder.holder_recycled.connect(_on_recycled)
 	timer.timeout.connect(_on_timeout)
 	card_holder.holder_clicked.connect(_on_card_holder_clicked)

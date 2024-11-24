@@ -59,6 +59,7 @@ func place_cards() -> void:
 		stack_empty.visible = true
 		stack.visible = false
 	holder_clicked.emit()
+	return 
 
 func load_cards(_cards: Array[Card]) -> void:
 	cards_prepared = _cards

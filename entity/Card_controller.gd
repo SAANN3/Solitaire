@@ -17,12 +17,13 @@ func leave(card: Card) -> void:
 	_set_last_card(true)
 	_on_card_left()
 
-func enter(card: Card) -> void:
-	_set_last_card(false)
+func enter(card: Card, disable_previous: bool = true) -> void:
+	if disable_previous:
+		_set_last_card(false)
 	cards.append(card)
 	card.parent = self
 	if card.get_parent():
-		card.reparent(cards_holder,false)
+		card.reparent(cards_holder, false)
 	else:
 		cards_holder.add_child(card)
 	_set_last_card(true)
@@ -64,7 +65,7 @@ func save() -> Dictionary:
 	}
 
 func load_dict(dict: Dictionary) -> void:
-	if dict["cards"].size() > 0:
+	if dict["cards"].size() >= 0:
 		var arr: Array[Card] = []
 		arr.assign(dict["cards"].map(func (elem: Dictionary) -> Card: return Card.load_dict(elem)))
 		load_cards(arr)
