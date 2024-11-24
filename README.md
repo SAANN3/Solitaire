@@ -25,10 +25,13 @@ build it using godot
 
 ## Screenshots
 ### Android
-![](https://github.com/user-attachments/assets/85fde671-8043-4261-8774-b4cb73b9ec14)
+![](https://github.com/user-attachments/assets/f02531a9-9f76-4e54-ac28-314d52d9ba1b)
 
 
-### Linux ( same on windows)
-![](https://github.com/user-attachments/assets/1479e113-74af-4bf1-877b-89f399ccdaef)
+
+### Linux ( same on windows )
+Note that you can also use a vertical layout on desktops, here i used horizontal
+![screenshot_2024-11-24-221858](https://github.com/user-attachments/assets/0f983af9-b360-43b4-80d5-a95a53fd3dad)
+
 
 
