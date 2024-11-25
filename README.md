@@ -18,6 +18,9 @@ Switch between 1 and 3 cards in waste pile.
 
 
 ## Installation
+Game also avaible on [itch.io](https://sann3.itch.io/solitaire)
+
+
 [Download](https://github.com/SAANN3/Solitaire/releases)  apk | exe | linux binary file and run it 
 ### Or if you prefer to compile from source
 build it using godot
